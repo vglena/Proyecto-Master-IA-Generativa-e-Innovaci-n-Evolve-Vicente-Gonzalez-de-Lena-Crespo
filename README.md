@@ -1,100 +1,123 @@
-# CRM Tasaciones AI
+# DB_consult_bot
 
-A web application that combines real estate appraisal case management (expedientes) with an AI-powered chat assistant connected to an n8n workflow agent.
+DB_consult_bot permite consultar y actualizar expedientes de una base de datos desde Telegram, pensado para trabajar con comodidad desde el movil sin abrir el CRM.
+
+El bot conversa con un agente de n8n conectado a la base de datos. Desde Telegram puedes pedir datos de un expediente, cambiar campos como el estado, y continuar la conversacion usando el ultimo expediente consultado como contexto.
+
+## Para Que Sirve
+
+- Buscar expedientes directamente desde Telegram.
+- Actualizar datos de un expediente desde el movil.
+- Mantener contexto por chat: despues de consultar `EXP-0090`, puedes decir `cambia el estado a facturado`.
+- Verificar cambios despues de una actualizacion mediante una lectura posterior del agente.
+- Usar tambien una interfaz web local con panel de chat y vista de expedientes.
 
 ## Stack
 
 - **Frontend:** React 19 + TypeScript + Vite + Tailwind CSS
-- **Backend:** Express.js (Node.js) + TypeScript
-- **AI integration:** n8n webhook agent
-- **Messaging integration:** Telegram Bot API via long polling
-- **State management:** Zustand
+- **Backend:** Express.js + TypeScript
+- **Bot:** Telegram Bot API mediante long polling
+- **Agente / datos:** webhook de n8n conectado a la base de datos
+- **Estado web:** Zustand
 
-## Features
+## Funcionalidades
 
-- AI chat panel powered by an n8n agent
-- Telegram bot bridge for asking the same n8n agent from Telegram
-- Expediente (case file) sidebar and detail view
-- Resizable split-panel layout (desktop and mobile)
-- Session-based conversation tracking
+- Bot de Telegram para consultar la base de datos desde cualquier chat privado.
+- Memoria por chat del ultimo expediente mencionado.
+- Indicador `typing...` mientras el agente procesa la consulta.
+- Bloqueo local para evitar respuestas duplicadas si se arrancan dos servidores.
+- Panel web con chat, listado de expedientes y vista de detalle.
+- Tests para validacion, parser de expedientes y flujo Telegram-agente.
 
-## Project structure
+## Estructura
 
-```
+```text
 src/
   modules/
-    app/          # Root layout and panel orchestration
-    chat/         # Chat UI, store, API client, session logic
-    expedientes/  # Case file list, detail view and parser
+    app/           # Layout principal
+    chat/          # Chat web, store, API client y sesion
+    expedientes/   # Vista, tipos y parser de expedientes
 server/
   modules/
-    chat/         # Express routes, controller, n8n client, validation
-    telegram/     # Telegram API client, bot poller and agent orchestration
+    chat/          # Rutas Express, controlador, validacion y cliente n8n
+    telegram/      # Cliente Telegram, poller, lock y orquestacion del bot
 ```
 
-## Getting started
+## Configuracion
 
-### Prerequisites
-
-- Node.js 20+
-- An n8n instance with a webhook-based agent workflow
-
-### Environment variables
-
-Create a `.env` file in the project root:
+Crea un archivo `.env` en la raiz del proyecto:
 
 ```env
 N8N_WEBHOOK_URL=https://your-n8n-instance.com/webhook/your-webhook-id
 PORT=3001
 TELEGRAM_BOT_TOKEN=replace-with-a-new-token-from-botfather
 TELEGRAM_BOT_ENABLED=true
+TELEGRAM_BOT_LOCK_PORT=39201
 ```
 
-`TELEGRAM_BOT_TOKEN` is optional. If it is missing, the web app and Express API
-still start normally and the Telegram bot stays disabled. Set
-`TELEGRAM_BOT_ENABLED=false` to keep the token configured but avoid starting the
-bot locally.
+`TELEGRAM_BOT_TOKEN` debe guardarse solo en `.env`. No subas tokens reales al repositorio.
 
-### Install dependencies
+Si `TELEGRAM_BOT_TOKEN` esta vacio, la API web arranca igualmente y el bot queda desactivado. Usa `TELEGRAM_BOT_ENABLED=false` para mantener el token configurado sin iniciar Telegram en local.
+
+## Instalacion
 
 ```bash
 npm install
 ```
 
-### Run in development
+## Desarrollo
 
-Starts both the Vite dev server (port 5173) and the Express API server (port 3001) concurrently:
+Arranca el servidor Express y el cliente Vite:
 
 ```bash
 npm run dev
 ```
 
-### Run tests
+La app web queda en:
+
+```text
+http://localhost:5173
+```
+
+La API queda en:
+
+```text
+http://localhost:3001
+```
+
+Si el bot esta bien configurado, el servidor mostrara:
+
+```text
+Bot de Telegram conectado por long polling.
+```
+
+## Pruebas
 
 ```bash
 npm test
 ```
 
-### Build for production
+## Build
 
 ```bash
 npm run build
 ```
 
-Transpiles the server with `tsc` and bundles the client with Vite. Output goes to `dist/` (client) and `dist-server/` (server).
+El cliente se genera en `dist/` y el servidor en `dist-server/`.
 
-### Start production server
+## Produccion
 
 ```bash
 npm start
 ```
 
-## Architecture notes
+## Notas De Arquitectura
 
-The project follows MVC separation:
+El proyecto mantiene separacion MVC adaptada a React + Express:
 
-- **View layer** — React components in `src/modules/`
-- **Store / controller layer** — Zustand store (`chat.store.ts`) and Express controllers
-- **Service / DAO layer** — `n8n-agent.client.ts` isolates all external agent communication; `telegram.service.ts` orchestrates Telegram messages without knowing HTTP details; `chat.validation.ts` handles input validation at the API boundary
+- **Vista:** componentes React en `src/modules/`.
+- **Control / entrada:** controladores Express y servicio de Telegram.
+- **Servicio / adaptadores:** `n8n-agent.client.ts` aisla la comunicacion con n8n y `telegram.client.ts` aisla la API de Telegram.
+- **Estado:** Zustand gestiona el estado visible de la app web; el bot mantiene memoria ligera por chat en servidor.
 
-Server Actions are not used here because the backend is a standalone Express server decoupled from the Next.js paradigm, making Route Handler–style endpoints the appropriate choice for the AI proxy endpoint.
+No se usan Server Actions porque este proyecto no es Next.js: el backend es Express y expone endpoints propios. La persistencia real queda delegada al workflow de n8n y su conexion con la base de datos.
