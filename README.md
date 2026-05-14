@@ -312,8 +312,6 @@ La persistencia real queda delegada al workflow de n8n y a su conexión con la b
 
 ## Aprendizaje y Contexto Formativo
 
-Este proyecto forma parte de mi portfolio de soluciones de **IA Generativa, automatización y aplicaciones LLM**, desarrollado durante el Master en IA Generativa en **Evolve Academy**.
-
 La aplicación combina conceptos clave de automatización moderna:
 
 - Agentes conectados a datos.
@@ -323,9 +321,10 @@ La aplicación combina conceptos clave de automatización moderna:
 - Uso de Telegram como interfaz móvil.
 - Separación entre frontend, backend y agentes externos.
 
-Más información sobre Evolve Academy:
+Este proyecto forma parte de mi portfolio de soluciones de **IA Generativa, automatización y aplicaciones LLM**, desarrollado durante el Master en IA Generativa en **Evolve Academy**.
 
-https://evolve.es/
+Más información sobre Evolve Academy: https://evolve.es/
+
 
 ---
 
