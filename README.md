@@ -325,6 +325,14 @@ Este proyecto forma parte de mi portfolio de soluciones de **IA Generativa, auto
 
 Más información sobre Evolve Academy: https://evolve.es/
 
+## Proyecto relacionado
+
+Si quieres usar un flujo similar, pero exclusivamente desde el ordenador, puedes ver **CRM Tasaciones AI**.
+
+Este proyecto ofrece una interfaz web para consultar y gestionar expedientes de tasación inmobiliaria mediante un asistente de chat con IA conectado a un agente de n8n.
+
+[Ver CRM Tasaciones AI en GitHub](https://github.com/vglena/Database-manager)
+
 
 ---
 
