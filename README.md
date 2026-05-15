@@ -345,3 +345,6 @@ Consultor en IA Generativa, automatización de procesos y aplicaciones LLM.
 - Portfolio: https://vicente-ai-portfolio.netlify.app/
 - GitHub: https://github.com/vglena
 - LinkedIn: https://linkedin.com/in/vgonzalezdelena
+- Artículo en Dev.to: https://dev.to/evolve-space/como-conecte-telegram-con-una-base-de-datos-usando-n8n-express-y-un-agente-de-ia-1el1
+- Artículo en Medium: https://medium.com/@bisont55/c%C3%B3mo-convert%C3%AD-telegram-en-una-interfaz-para-consultar-y-actualizar-una-base-de-datos-con-ia-1356fc51ef9e
+- Artículo en Hashnode: https://vglenahashnodedev.hashnode.dev/c-mo-convert-telegram-en-una-interfaz-para-consultar-y-actualizar-una-base-de-datos-con-ia?utm_source=hashnode&utm_medium=feed
