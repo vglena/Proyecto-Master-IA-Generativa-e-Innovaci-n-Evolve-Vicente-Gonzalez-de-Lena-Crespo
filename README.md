@@ -1,6 +1,6 @@
-# DB_consult_bot
+# DB consult_bot
 
-**DB_consult_bot** es una aplicación de automatización con IA que permite consultar y actualizar expedientes de una base de datos directamente desde Telegram, sin necesidad de abrir el CRM o acceder manualmente al sistema de gestión.
+**DB consult bot** es una aplicación de automatización con IA que permite consultar y actualizar expedientes de una base de datos directamente desde Telegram, sin necesidad de abrir el CRM o acceder manualmente al sistema de gestión.
 
 El proyecto conecta un bot de Telegram con un agente desarrollado en **n8n**, que actúa como intermediario entre el usuario y la base de datos. Desde el móvil, el usuario puede buscar expedientes, consultar información, modificar campos y mantener una conversación contextual sobre el último expediente consultado.
 
@@ -10,7 +10,7 @@ Este proyecto ha sido desarrollado como parte del proceso de aprendizaje y espec
 
 ## Descripción del Proyecto
 
-El objetivo de **DB_consult_bot** es demostrar cómo un asistente conversacional puede integrarse con herramientas de automatización y bases de datos para facilitar tareas administrativas y operativas desde una interfaz sencilla como Telegram.
+El objetivo de **DB consult bot** es demostrar cómo un asistente conversacional puede integrarse con herramientas de automatización y bases de datos para facilitar tareas administrativas y operativas desde una interfaz sencilla como Telegram.
 
 El bot permite trabajar con expedientes de forma rápida desde el móvil. Por ejemplo, un usuario puede consultar un expediente concreto y, a continuación, pedir al bot que actualice su estado sin volver a indicar el número de expediente, ya que el sistema conserva el contexto de la conversación.
 
@@ -28,7 +28,7 @@ Además del bot de Telegram, el proyecto incluye una interfaz web local con pane
 
 ## Para Qué Sirve
 
-**DB_consult_bot** está pensado para automatizar tareas habituales de consulta y actualización de datos en entornos administrativos, comerciales o de gestión interna.
+**DB consult bot** está pensado para automatizar tareas habituales de consulta y actualización de datos en entornos administrativos, comerciales o de gestión interna.
 
 Permite:
 
@@ -340,16 +340,18 @@ Este proyecto ofrece una interfaz web para consultar, gestionar y actualizar reg
 
 **Vicente González de Lena**
 
-Consultor en IA Generativa, automatización de procesos y aplicaciones LLM.
+- Portfolio: [Portfolio](https://vicente-ai-portfolio.netlify.app/)
 
-Portfolio: [Portfolio de Vicente González de Lena](https://vicente-ai-portfolio.netlify.app/)
+- GitHub: [GitHub](https://github.com/vglena)
 
-GitHub: [GitHub de Vicente González de Lena](https://github.com/vglena)
+- LinkedIn: [LinkedIn](https://linkedin.com/in/vgonzalezdelena)
 
-LinkedIn: [LinkedIn de Vicente González de Lena](https://linkedin.com/in/vgonzalezdelena)
+- Artículo en Dev.to: [Cómo conecté Telegram con una base de datos usando n8n, Express y un agente de IA](https://dev.to/evolve-space/como-conecte-telegram-con-una-base-de-datos-usando-n8n-express-y-un-agente-de-ia-1el1)
 
-Artículo en Dev.to: [Cómo conecté Telegram con una base de datos usando n8n, Express y un agente de IA](https://dev.to/evolve-space/como-conecte-telegram-con-una-base-de-datos-usando-n8n-express-y-un-agente-de-ia-1el1)
+- Artículo en Medium: [Cómo convertí Telegram en una interfaz para consultar y actualizar una base de datos con IA](https://medium.com/@bisont55/c%C3%B3mo-convert%C3%AD-telegram-en-una-interfaz-para-consultar-y-actualizar-una-base-de-datos-con-ia-1356fc51ef9e)
 
-Artículo en Medium: [Cómo convertí Telegram en una interfaz para consultar y actualizar una base de datos con IA](https://medium.com/@bisont55/c%C3%B3mo-convert%C3%AD-telegram-en-una-interfaz-para-consultar-y-actualizar-una-base-de-datos-con-ia-1356fc51ef9e)
+- Artículo en Hashnode: [Cómo convertí Telegram en una interfaz para consultar y actualizar una base de datos con IA](https://vglenahashnodedev.hashnode.dev/c-mo-convert-telegram-en-una-interfaz-para-consultar-y-actualizar-una-base-de-datos-con-ia?utm_source=hashnode&utm_medium=feed)
 
-Artículo en Hashnode: [Cómo convertí Telegram en una interfaz para consultar y actualizar una base de datos con IA](https://vglenahashnodedev.hashnode.dev/c-mo-convert-telegram-en-una-interfaz-para-consultar-y-actualizar-una-base-de-datos-con-ia?utm_source=hashnode&utm_medium=feed)
+- Artículo en Medium: [Cómo convertí Telegram en una interfaz para consultar y actualizar una base de datos con IA](https://medium.com/@bisont55/c%C3%B3mo-convert%C3%AD-telegram-en-una-interfaz-para-consultar-y-actualizar-una-base-de-datos-con-ia-1356fc51ef9e)
+
+- Artículo en Hashnode: [Cómo convertí Telegram en una interfaz para consultar y actualizar una base de datos con IA](https://vglenahashnodedev.hashnode.dev/c-mo-convert-telegram-en-una-interfaz-para-consultar-y-actualizar-una-base-de-datos-con-ia?utm_source=hashnode&utm_medium=feed)
