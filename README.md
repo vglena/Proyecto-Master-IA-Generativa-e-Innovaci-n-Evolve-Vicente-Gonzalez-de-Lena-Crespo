@@ -1,4 +1,4 @@
-# DB consult_bot
+# DB consult bot
 
 **DB consult bot** es una aplicación de automatización con IA que permite consultar y actualizar expedientes de una base de datos directamente desde Telegram, sin necesidad de abrir el CRM o acceder manualmente al sistema de gestión.
 
@@ -340,11 +340,11 @@ Este proyecto ofrece una interfaz web para consultar, gestionar y actualizar reg
 
 **Vicente González de Lena**
 
-- Portfolio: [Portfolio](https://vicente-ai-portfolio.netlify.app/)
+- [Portfolio](https://vicente-ai-portfolio.netlify.app/)
 
-- GitHub: [GitHub](https://github.com/vglena)
+- [GitHub](https://github.com/vglena)
 
-- LinkedIn: [LinkedIn](https://linkedin.com/in/vgonzalezdelena)
+- [LinkedIn](https://linkedin.com/in/vgonzalezdelena)
 
 - Artículo en Dev.to: [Cómo conecté Telegram con una base de datos usando n8n, Express y un agente de IA](https://dev.to/evolve-space/como-conecte-telegram-con-una-base-de-datos-usando-n8n-express-y-un-agente-de-ia-1el1)
 
