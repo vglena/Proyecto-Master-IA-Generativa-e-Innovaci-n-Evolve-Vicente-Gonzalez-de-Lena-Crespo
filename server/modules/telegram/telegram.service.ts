@@ -69,6 +69,12 @@ export class TelegramAgentService {
                 updateResponseText: agentResponse.text,
                 expedienteClave: nextExpedienteClave
               })
+            : isExpedienteCreationResponse(agentResponse.text) && nextExpedienteClave
+            ? await this.createVerifiedCreationReply({
+                chatId: message.chat.id,
+                creationResponseText: agentResponse.text,
+                expedienteClave: nextExpedienteClave
+              })
             : agentResponse.text;
 
         if (nextExpedienteClave) {
@@ -103,6 +109,37 @@ export class TelegramAgentService {
     return () => {
       clearInterval(typingInterval);
     };
+  }
+
+  private async createVerifiedCreationReply({
+    chatId,
+    creationResponseText,
+    expedienteClave
+  }: {
+    chatId: number;
+    creationResponseText: string;
+    expedienteClave: string;
+  }): Promise<string> {
+    try {
+      const verificationResponse = await this.dependencies.agentClient.sendMessage({
+        chatInput: `Dame los datos del ${expedienteClave}`,
+        sessionId: createTelegramSessionId(chatId),
+        selectedExpedienteClave: expedienteClave
+      });
+
+      return [
+        creationResponseText,
+        "",
+        "Verificacion despues de crear:",
+        verificationResponse.text
+      ].join("\n");
+    } catch (error) {
+      return [
+        creationResponseText,
+        "",
+        createVerificationErrorMessage(error)
+      ].join("\n");
+    }
   }
 
   private async createVerifiedUpdateReply({
@@ -149,7 +186,7 @@ function createWelcomeMessage(): string {
   return [
     "Hola, soy DB Consult Bot.",
     "",
-    "Puedo buscar expedientes y ayudarte a actualizar datos en la base.",
+    "Puedo buscar, crear y actualizar expedientes en la base de datos.",
     "Si acabas de consultar un expediente, recordare esa clave en este chat para que puedas decir cosas como:",
     "",
     "\"cambia el estado a facturado\""
@@ -158,6 +195,10 @@ function createWelcomeMessage(): string {
 
 function isExpedienteUpdateResponse(text: string): boolean {
   return normalizeText(text).includes("expediente actualizado");
+}
+
+function isExpedienteCreationResponse(text: string): boolean {
+  return normalizeText(text).includes("expediente creado");
 }
 
 function findExpedienteClave(text: string): string | undefined {

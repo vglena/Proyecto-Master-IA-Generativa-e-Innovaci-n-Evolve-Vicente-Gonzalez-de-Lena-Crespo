@@ -121,6 +121,66 @@ describe("TelegramAgentService", () => {
     );
   });
 
+  it("verifica con una lectura posterior cuando crea un expediente", async () => {
+    const { agentClient, telegramClient, service } = createTelegramService({
+      agentResponses: [
+        {
+          text: "Expediente creado:\n\nClave: EXP-0101\nNombre: Juan García",
+          raw: {}
+        },
+        {
+          text: "Expediente encontrado:\n\nClave: EXP-0101\nNombre: Juan García",
+          raw: {}
+        }
+      ]
+    });
+
+    await service.handleUpdates([createTextUpdate("Crea un expediente para Juan García")]);
+
+    expect(agentClient.sendMessage).toHaveBeenNthCalledWith(2, {
+      chatInput: "Dame los datos del EXP-0101",
+      sessionId: "telegram:123",
+      selectedExpedienteClave: "EXP-0101"
+    });
+    expect(telegramClient.sendMessage).toHaveBeenCalledWith(
+      123,
+      [
+        "Expediente creado:\n\nClave: EXP-0101\nNombre: Juan García",
+        "",
+        "Verificacion despues de crear:",
+        "Expediente encontrado:\n\nClave: EXP-0101\nNombre: Juan García"
+      ].join("\n")
+    );
+  });
+
+  it("recuerda el expediente creado para mensajes posteriores en el mismo chat", async () => {
+    const { agentClient, service } = createTelegramService({
+      agentResponses: [
+        {
+          text: "Expediente creado:\n\nClave: EXP-0101\nNombre: Juan García",
+          raw: {}
+        },
+        {
+          text: "Expediente encontrado:\n\nClave: EXP-0101\nNombre: Juan García",
+          raw: {}
+        },
+        {
+          text: "Expediente actualizado",
+          raw: {}
+        }
+      ]
+    });
+
+    await service.handleUpdates([createTextUpdate("Crea un expediente para Juan García")]);
+    await service.handleUpdates([createTextUpdate("Cambia el estado a abierto")]);
+
+    expect(agentClient.sendMessage).toHaveBeenNthCalledWith(3, {
+      chatInput: "Cambia el estado a abierto",
+      sessionId: "telegram:123",
+      selectedExpedienteClave: "EXP-0101"
+    });
+  });
+
   it("responde ayuda sin llamar al agente", async () => {
     const { agentClient, telegramClient, service } = createTelegramService();
 
@@ -132,7 +192,7 @@ describe("TelegramAgentService", () => {
       [
         "Hola, soy DB Consult Bot.",
         "",
-        "Puedo buscar expedientes y ayudarte a actualizar datos en la base.",
+        "Puedo buscar, crear y actualizar expedientes en la base de datos.",
         "Si acabas de consultar un expediente, recordare esa clave en este chat para que puedas decir cosas como:",
         "",
         "\"cambia el estado a facturado\""
