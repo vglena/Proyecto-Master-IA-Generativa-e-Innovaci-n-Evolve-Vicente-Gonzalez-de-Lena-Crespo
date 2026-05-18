@@ -1,10 +1,10 @@
 # DB consult bot
 
-**DB consult bot** es una aplicación de automatización con IA que permite consultar, crear y actualizar expedientes de una base de datos directamente desde Telegram, sin necesidad de abrir el CRM o acceder manualmente al sistema de gestión.
+**DB consult bot** es una aplicación de automatización con IA que permite consultar, añadir y actualizar datos de una base de datos directamente desde Telegram, sin necesidad de abrir el CRM o acceder manualmente al sistema de gestión.
 
 El proyecto conecta un bot de Telegram con un agente desarrollado en **n8n**, que actúa como intermediario entre el usuario y la base de datos. La base de datos está alojada en **Airtable** y la conexión se realiza mediante su **API**, evitando que la IA tenga acceso directo a la base de datos.
 
-Desde el móvil, el usuario puede buscar expedientes, consultar información, crear nuevos registros, modificar campos y mantener una conversación contextual sobre el último expediente consultado.
+Desde el móvil, el usuario puede buscar expedientes, consultar información, añadir nuevos datos, modificar campos y mantener una conversación contextual sobre el último expediente consultado.
 
 Este proyecto ha sido desarrollado como parte del proceso de aprendizaje y especialización en **Inteligencia Artificial Generativa y automatización de procesos** dentro del ecosistema formativo de **Evolve Academy**.
 
@@ -14,9 +14,9 @@ Este proyecto ha sido desarrollado como parte del proceso de aprendizaje y espec
 
 El objetivo de **DB consult bot** es demostrar cómo un asistente conversacional puede integrarse con herramientas de automatización y bases de datos para facilitar tareas administrativas y operativas desde una interfaz sencilla como Telegram.
 
-El bot permite trabajar con expedientes de forma rápida desde el móvil. Por ejemplo, un usuario puede consultar un expediente concreto y, a continuación, pedir al bot que actualice su estado sin volver a indicar el número de expediente, ya que el sistema conserva el contexto de la conversación.
+El bot permite trabajar con datos y expedientes de forma rápida desde el móvil. Por ejemplo, un usuario puede consultar un expediente concreto y, a continuación, pedir al bot que actualice su estado sin volver a indicar el número de expediente, ya que el sistema conserva el contexto de la conversación.
 
-También permite crear nuevos expedientes o registros mediante lenguaje natural, delegando la ejecución real en un flujo controlado de n8n conectado a Airtable mediante API.
+También permite añadir nuevos datos a la base de datos mediante lenguaje natural, delegando la ejecución real en un flujo controlado de n8n conectado a Airtable mediante API.
 
 Ejemplo de uso:
 
@@ -26,8 +26,8 @@ Ejemplo de uso:
     Usuario: Cambia el estado a facturado
     Bot: Estado actualizado correctamente a facturado para el expediente EXP-0090.
 
-    Usuario: Crea un nuevo expediente para el cliente Juan Pérez
-    Bot: Nuevo expediente creado correctamente.
+    Usuario: Añade los datos del cliente Juan Pérez
+    Bot: Datos añadidos correctamente.
 
 Además del bot de Telegram, el proyecto incluye una interfaz web local con panel de chat, listado de expedientes y vista de detalle, pensada para pruebas, desarrollo y visualización del flujo completo.
 
@@ -35,18 +35,18 @@ Además del bot de Telegram, el proyecto incluye una interfaz web local con pane
 
 ## Para Qué Sirve
 
-**DB consult bot** está pensado para automatizar tareas habituales de consulta, creación y actualización de datos en entornos administrativos, comerciales o de gestión interna.
+**DB consult bot** está pensado para automatizar tareas habituales de consulta, incorporación y actualización de datos en entornos administrativos, comerciales o de gestión interna.
 
 Permite:
 
 - Buscar expedientes directamente desde Telegram.
 - Consultar datos sin abrir el CRM.
-- Crear nuevos expedientes o registros desde Telegram mediante lenguaje natural.
+- Añadir nuevos datos desde Telegram mediante lenguaje natural.
 - Actualizar campos de un expediente desde el móvil.
 - Mantener contexto por chat sobre el último expediente consultado.
 - Verificar cambios mediante una lectura posterior del agente.
 - Usar una interfaz web local con chat y vista de expedientes.
-- Reducir fricción en procesos repetitivos de consulta, creación y actualización.
+- Reducir fricción en procesos repetitivos de consulta, incorporación y actualización.
 - Acercar la interacción con bases de datos a usuarios no técnicos mediante lenguaje natural.
 - Trabajar con una base de datos alojada en Airtable sin exponer acceso directo al modelo de IA.
 
@@ -59,7 +59,7 @@ Permite:
 - Base de datos alojada en **Airtable**.
 - Conexión con Airtable mediante API.
 - Consulta de expedientes desde cualquier chat privado de Telegram.
-- Creación de nuevos expedientes mediante lenguaje natural.
+- Incorporación de nuevos datos mediante lenguaje natural.
 - Actualización de campos de expedientes mediante lenguaje natural.
 - Memoria por chat del último expediente mencionado.
 - Uso del último expediente consultado como contexto conversacional.
@@ -79,14 +79,14 @@ El proyecto consigue integrar con éxito una interfaz conversacional móvil con 
 Resultados principales:
 
 - Consulta de expedientes desde Telegram sin acceder manualmente al CRM.
-- Creación de nuevos registros desde lenguaje natural.
+- Incorporación de nuevos datos desde lenguaje natural.
 - Actualización de datos desde lenguaje natural.
 - Reducción de pasos en tareas administrativas repetitivas.
 - Uso de contexto conversacional para continuar acciones sobre el último expediente.
 - Arquitectura modular y ampliable.
 - Integración funcional entre Telegram, Express, n8n, Airtable y API.
 - Interfaz web complementaria para pruebas y visualización.
-- Base preparada para extender el sistema a otros tipos de registros, CRM o flujos internos.
+- Base preparada para extender el sistema a otros tipos de datos, CRM o flujos internos.
 - Diseño más seguro al evitar que la IA gestione directamente la base de datos.
 
 ---
@@ -121,7 +121,7 @@ Resultados principales:
 - Webhook de agente
 - **Airtable** como base de datos alojada
 - Conexión con Airtable mediante API
-- Flujo de consulta, creación y actualización de expedientes
+- Flujo de consulta, incorporación y actualización de datos
 
 ### Testing
 
@@ -174,7 +174,7 @@ Además, la aplicación incluye una interfaz web local:
             v
     Base de datos en Airtable
 
-La IA no se conecta directamente a la base de datos. El agente interpreta la intención del usuario y envía solicitudes estructuradas al flujo de automatización, mientras que la ejecución real de consultas, creaciones y actualizaciones se realiza mediante la API de Airtable.
+La IA no se conecta directamente a la base de datos. El agente interpreta la intención del usuario y envía solicitudes estructuradas al flujo de automatización, mientras que la ejecución real de consultas, incorporación y actualizaciones se realiza mediante la API de Airtable.
 
 ---
 
@@ -221,7 +221,7 @@ para mantener el token configurado sin iniciar Telegram en local.
 
 La base de datos no se conecta directamente al modelo de IA.
 
-La persistencia de datos está alojada en **Airtable** y todas las operaciones de consulta, creación o actualización se realizan mediante la **API de Airtable**, gestionada desde el backend y/o el workflow de n8n.
+La persistencia de datos está alojada en **Airtable** y todas las operaciones de consulta, incorporación o actualización se realizan mediante la **API de Airtable**, gestionada desde el backend y/o el workflow de n8n.
 
 Este diseño evita que la IA tenga control directo sobre la base de datos. El agente solo interpreta la intención del usuario y genera solicitudes estructuradas, mientras que la ejecución real queda controlada por capas intermedias donde pueden aplicarse validaciones, permisos, reglas de negocio y comprobaciones de seguridad.
 
@@ -312,15 +312,15 @@ Ejemplo básico de conversación:
 
 El sistema recuerda que el último expediente consultado fue `EXP-0090`, por lo que el usuario no necesita repetir el identificador en la siguiente instrucción.
 
-Ejemplo de creación de registro:
+Ejemplo de incorporación de datos:
 
     Usuario:
-    Crea un expediente para Marta López con estado pendiente
+    Añade los datos de Marta López con estado pendiente
 
     Bot:
-    Expediente creado correctamente.
+    Datos añadidos correctamente.
 
-En este caso, el bot interpreta la intención del usuario, el agente estructura la operación y el flujo de n8n ejecuta la creación del registro en Airtable mediante API.
+En este caso, el bot interpreta la intención del usuario, el agente estructura la operación y el flujo de n8n añade los datos en Airtable mediante API.
 
 ---
 
@@ -341,7 +341,7 @@ No se usan Server Actions porque este proyecto no está desarrollado con Next.js
 
 La persistencia real queda delegada al workflow de n8n y a su conexión con **Airtable mediante API**.
 
-La IA no gestiona directamente la base de datos. Esta decisión reduce riesgos, ya que las operaciones sobre los datos pasan por una capa intermedia donde se pueden validar entradas, limitar acciones permitidas, controlar permisos y registrar cambios antes de ejecutar cualquier consulta, creación o actualización.
+La IA no gestiona directamente la base de datos. Esta decisión reduce riesgos, ya que las operaciones sobre los datos pasan por una capa intermedia donde se pueden validar entradas, limitar acciones permitidas, controlar permisos y registrar cambios antes de ejecutar cualquier consulta, incorporación o actualización.
 
 ---
 
@@ -351,7 +351,7 @@ La IA no gestiona directamente la base de datos. Esta decisión reduce riesgos, 
 - Control de permisos por rol.
 - Historial de cambios por expediente.
 - Confirmación previa antes de modificar campos sensibles.
-- Confirmación previa antes de crear nuevos registros.
+- Confirmación previa antes de añadir nuevos datos.
 - Validación avanzada de datos antes de enviar operaciones a Airtable.
 - Integración con un CRM real manteniendo una capa API segura entre la IA y la base de datos.
 - Despliegue en servidor cloud.
@@ -385,7 +385,7 @@ Más información sobre Evolve Academy: https://evolve.es/
 
 Si quieres usar un flujo similar, pero exclusivamente desde el ordenador, puedes ver **Database Manager**.
 
-Este proyecto ofrece una interfaz web para consultar, crear, gestionar y actualizar registros de una base de datos mediante un asistente de chat con IA conectado a un agente de n8n.
+Este proyecto ofrece una interfaz web para consultar, añadir, gestionar y actualizar datos de una base de datos mediante un asistente de chat con IA conectado a un agente de n8n.
 
 También utiliza una arquitectura donde la base de datos se mantiene detrás de una capa API, evitando que la IA gestione directamente los datos.
 
@@ -404,7 +404,3 @@ También utiliza una arquitectura donde la base de datos se mantiene detrás de 
 - [LinkedIn](https://linkedin.com/in/vgonzalezdelena)
 
 - Artículo en Dev.to: [Cómo conecté Telegram con una base de datos usando n8n, Express y un agente de IA](https://dev.to/evolve-space/como-conecte-telegram-con-una-base-de-datos-usando-n8n-express-y-un-agente-de-ia-1el1)
-
-- Artículo en Medium: [Cómo convertí Telegram en una interfaz para consultar y actualizar una base de datos con IA](https://medium.com/@bisont55/c%C3%B3mo-convert%C3%AD-telegram-en-una-interfaz-para-consultar-y-actualizar-una-base-de-datos-con-ia-1356fc51ef9e)
-
-- Artículo en Hashnode: [Cómo convertí Telegram en una interfaz para consultar y actualizar una base de datos con IA](https://vglenahashnodedev.hashnode.dev/c-mo-convert-telegram-en-una-interfaz-para-consultar-y-actualizar-una-base-de-datos-con-ia?utm_source=hashnode&utm_medium=feed)
