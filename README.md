@@ -403,4 +403,10 @@ También utiliza una arquitectura donde la base de datos se mantiene detrás de 
 
 - [LinkedIn](https://linkedin.com/in/vgonzalezdelena)
 
-- Artículo en Dev.to: [Cómo conecté Telegram con una base de datos usando n8n, Express y un agente de IA](https://dev.to/evolve-space/como-conecte-telegram-con-una-base-de-datos-usando-n8n-express-y-un-agente-de-ia-1el1)
+- Artículo en Dev.to: [Cómo conecté Telegram con una base de datos usando n8n, Express y un agente de IA](https://dev.to/vglena/como-converti-telegram-en-una-interfaz-para-consultar-anadir-y-actualizar-datos-con-ia-5e6b)
+
+- Artículo en Medium: [De Telegram a base de datos: consultas, creación y actualización de datos con IA](https://medium.com/@bisont55/c%C3%B3mo-convert%C3%AD-telegram-en-una-interfaz-para-consultar-y-actualizar-una-base-de-datos-con-ia-1356fc51ef9e)
+
+- Artículo en Hashnode: [Cómo convertí Telegram en una interfaz para consultar, añadir y actualizar una base de datos con IA](https://vglenahashnodedev.hashnode.dev/c-mo-convert-telegram-en-una-interfaz-para-consultar-y-actualizar-una-base-de-datos-con-ia?utm_source=hashnode&utm_medium=feed)
+
+- Artículo en LinkedIn Articles: [Telegram como interfaz inteligente para consultar, añadir y actualizar datos con IA](https://www.linkedin.com/pulse/c%C3%B3mo-convert%C3%AD-telegram-en-una-interfaz-para-consultar-vicente-muore/)
