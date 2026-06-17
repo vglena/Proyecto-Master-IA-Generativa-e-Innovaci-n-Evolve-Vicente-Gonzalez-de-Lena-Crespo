@@ -381,7 +381,7 @@ Más información sobre Evolve Academy: https://evolve.es/
 
 ---
 
-## Proyecto relacionado
+## Versión agente conversacional exlcusivo para PC
 
 Si quieres usar un flujo similar, pero exclusivamente desde el ordenador, puedes ver **Database Manager**.
 
